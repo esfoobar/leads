@@ -39,13 +39,13 @@ sfdc_webform = sfdc_nn[sfdc_nn['sfdc_campaigns'].apply(lambda x: 'Webform' in x)
 sfdc_webform_final = sfdc_webinar.drop(['acquisition_channel', 'mms_backup_status', 'mms',  'sfdc_campaigns'], axis=1)
 sfdc_webform_final.to_csv('reports/sfdc_webform.csv')
 
-sfdc_mms = leads.dropna(subset=['mms'])
-sfdc_mms_final = sfdc_mms.drop(['acquisition_channel', 'mms_backup_status', 'mms',  'sfdc_campaigns'], axis=1)
-sfdc_mms_final.to_csv('reports/sfdc_mms.csv')
+mms = leads.dropna(subset=['mms'])
+mms_final = mms.drop(['acquisition_channel', 'mms_backup_status', 'mms',  'sfdc_campaigns'], axis=1)
+mms_final.to_csv('reports/mms.csv')
 
-sfdc_mms_backup = leads.dropna(subset=['mms_backup_status'])
-sfdc_mms_backup_final = sfdc_mms_backup.drop(['acquisition_channel', 'mms_backup_status', 'mms',  'sfdc_campaigns'], axis=1)
-sfdc_mms_backup_final.to_csv('reports/sfdc_mms_backup.csv')
+mms_backup = leads.dropna(subset=['mms_backup_status'])
+mms_backup_final = mms_backup.drop(['acquisition_channel', 'mms_backup_status', 'mms',  'sfdc_campaigns'], axis=1)
+mms_backup_final.to_csv('reports/mms_backup.csv')
 
 acqui_nn = leads.dropna(subset=['acquisition_channel'])
 
