@@ -39,6 +39,10 @@ sfdc_webform = sfdc_nn[sfdc_nn['sfdc_campaigns'].apply(lambda x: 'Webform' in x)
 sfdc_webform_final = sfdc_webinar.drop(['acquisition_channel', 'mms_backup_status', 'mms',  'sfdc_campaigns'], axis=1)
 sfdc_webform_final.to_csv('reports/sfdc_webform.csv')
 
+sfdc_training = sfdc_nn[sfdc_nn['sfdc_campaigns'].apply(lambda x: 'Public Training' in x)]
+sfdc_training_final = sfdc_training.drop(['acquisition_channel', 'mms_backup_status', 'mms',  'sfdc_campaigns'], axis=1)
+sfdc_training_final.to_csv('reports/sfdc_training.csv')
+
 mms = leads.dropna(subset=['mms'])
 mms_final = mms.drop(['acquisition_channel', 'mms_backup_status', 'mms',  'sfdc_campaigns'], axis=1)
 mms_final.to_csv('reports/mms.csv')
